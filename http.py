@@ -103,23 +103,23 @@ def run():
         &BAIDUID=&charset=utf-8&forcesid=etoe'
     file_path = './data/url.txt'
     file_object = open(file_path)
-    i = 0
+    j = 0
     while 1:
         line = file_object.readline()
         if not line:
             break
         url = line
         HV = VideoHttp()
-        i += 1
-        print "NOTICE old %s i = %d" % (time.strftime('%H:%M:%S', time.localtime(time.time())), i)
+        j += 1
+        print "NOTICE old %s j = %d" % (time.strftime('%H:%M:%S', time.localtime(time.time())), j)
         ret = HV.get_feature(url)
-        print "NOTICE new %s i = %d" % (time.strftime('%H:%M:%S', time.localtime(time.time())), i)
+        print "NOTICE new %s j = %d" % (time.strftime('%H:%M:%S', time.localtime(time.time())), j)
         if ret != 0:
             print "Result Error: (%s) fail " % url
         else:
             print "Result Equal: (%s) ok" % url
         print "sleep 1s"
-        time.sleep(2)
+        time.sleep(10)
     file_object.close()
 
 if __name__ == '__main__':
